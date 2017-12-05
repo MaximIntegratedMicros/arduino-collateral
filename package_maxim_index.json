@@ -41,6 +41,39 @@
                             "version": "1.0.0"
                         }
                     ]
+                },
+                {
+                    "name": "Maxim's 32-bit Microcontroller",
+                    "architecture": "arm",
+                    "version": "1.0.1",
+                    "category": "Contributed",
+                    "url": "https://github.com/maximintegratedmicros/arduino-collateral/raw/master/MAXIM_ARDUINO_v1.0.1.zip",
+                    "archiveFileName": "MAXIM_ARDUINO_v1.0.1.zip",
+                    "checksum": "SHA-256:87da31029d80dc4568a73f1237b0d03928ebdede7d117d8153e488c1d1bd5339",
+                    "size": 865503,
+                    "help": {
+                        "online": "https://www.maximintegrated.com/"
+                    },
+                    "boards": [
+                        {
+                            "name": "MAX32620FTHR"
+                        },
+                        {
+                            "name": "MAX32625MBED"
+                        }
+                    ],
+                    "toolsDependencies": [
+                        {
+                            "packager": "arduino",
+                            "name": "arm-none-eabi-gcc",
+                            "version": "4.8.3-2014q1"
+                        },
+                        {
+                            "packager": "Maxim",
+                            "name": "daplink",
+                            "version": "1.0.0"
+                        }
+                    ]
                 }
             ],
             "tools": [
