@@ -3,10 +3,9 @@
         {
             "name": "Maxim",
             "maintainer": "Maxim Integrated",
-            "websiteURL": "https://www.maximintegrated.com/",
-            "email": "",
+            "websiteURL": "https://github.com/MaximIntegratedMicros/arduino-max326xx",
             "help": {
-                "online": "https://www.maximintegrated.com/"
+                "online": "https://github.com/MaximIntegratedMicros/arduino-max326xx/wiki"
             },
             "platforms": [
                 {
@@ -291,6 +290,42 @@
                     "archiveFileName": "MAXIM_ARDUINO_v1.1.3.zip",
                     "checksum": "SHA-256:ff7c00c53799980eab90b6e03dcf3729472e1fa7a709c3934590cc6156d218ec",
                     "size": 1475942,
+                    "help": {
+                        "online": "https://www.maximintegrated.com/"
+                    },
+                    "boards": [
+                        {
+                            "name": "MAX32620FTHR"
+                        },
+                        {
+                            "name": "MAX32625MBED"
+                        },
+                        {
+                            "name": "MAX32630FTHR"
+                        }
+                    ],
+                    "toolsDependencies": [
+                        {
+                            "packager": "arduino",
+                            "name": "arm-none-eabi-gcc",
+                            "version": "4.8.3-2014q1"
+                        },
+                        {
+                            "packager": "Maxim",
+                            "name": "daplink",
+                            "version": "1.0.1"
+                        }
+                    ]
+                },
+                {
+                    "name": "Maxim's 32-bit Microcontroller",
+                    "architecture": "arm",
+                    "version": "1.1.4",
+                    "category": "Contributed",
+                    "url": "https://github.com/maximintegratedmicros/arduino-collateral/raw/master/MAXIM_ARDUINO_v1.1.4.zip",
+                    "archiveFileName": "MAXIM_ARDUINO_v1.1.4.zip",
+                    "checksum": "SHA-256:b639b3bd73b3cf78cecc344618af528aab390d771b2ea308739f3c2b1cb95b71",
+                    "size": 1477967,
                     "help": {
                         "online": "https://www.maximintegrated.com/"
                     },
