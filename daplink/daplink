@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Note: Any non-zero exit code allows Arduino IDE to raise an error with no significance of the number itself
+
 binPath=$1
 binFile=$2
 mountPoint=$3
@@ -15,21 +17,25 @@ else
     mountPath="/media/$USER/"$mountPoint
 fi
 
-# print search path when verbose is enabled
-if [[ "$options" == "-v"* ]]; then echo "Searching for Maxim board in "$searchPath
-fi
+if [[ "$options" == "-v"* ]]; then echo "Expecting a Maxim board at "$mountPath; fi # verbose
 
-# Verify that Maxim board is valid before copying(loading) the binary file
+# verify that Maxim board is valid before copying(loading) the binary file
 if ([ $mountPoint == "BOOTLOADER" ] && [ -e $mountPath"/DETAILS.TXT" ] && [ -e $mountPath"/HELP_FAQ.HTM" ]) \
     || ([ $mountPoint == "DAPLINK" ] && [ -e $mountPath"/DETAILS.TXT" ] && [ -e $mountPath"/MBED.HTM" ]); then
 
+    if [[ "$options" == "-v"* ]]; then echo "Loading... "; fi   # verbose
     cp $options $binPath/$binFile $mountPath
-	# verify if file has been copied
-	if [ ! -e $mountPath/$binFile ]; then
-		echo "Can't upload the file to USB drive."
-		exit 1
-	fi
+    if [ ! $? == 0 ]; then exit 1; fi                           # verify cp passed
+    if [[ "$options" == "-v"* ]]; then echo "Complete."; fi     # verbose
+
+    # verify whether file has been copied
+    if [[ "$options" == "-v"* ]]; then echo "Verifying..."; fi  # verbose
+    if [ ! -e $mountPath/$binFile ]; then
+        if [[ "$options" == "-v"* ]]; then echo -e "Failed. Check for Write permission on $mountPoint USB drive."; fi # verbose
+        exit 1
+    elif [[ "$options" == "-v"* ]]; then echo "Success."; fi    # verbose
+
 else
-    echo "Maxim board not found."
+    if [[ "$options" == "-v"* ]]; then echo "Either $mountPoint USB drive doesn't exists or a file on drive is missing."; fi # verbose
     exit 1
 fi
